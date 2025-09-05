@@ -3,7 +3,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Einzelkarte mit Bildern</title>
+  <title>Personalpronomen</title>
   <style>
     body {
       font-family: sans-serif;
@@ -60,7 +60,7 @@
   </style>
 </head>
 <body>
-  <h2>Klicke auf die Karte oder nutze die Buttons</h2>
+  <h2>Klicke auf die Karte</h2>
   <div class="card" id="card" onclick="toggleCard()">
     <div class="card-inner">
       <div class="card-front">
@@ -71,33 +71,37 @@
       </div>
     </div>
   </div>
-  <button onclick="toggleCard()">Aufdecken / Zudecken</button>
-  <button onclick="newCard()">Neue Karte</button>
 
-  <script>
-    const images = [
-      'images/1.png',
-      'images/2.png',
-      'images/3.png',
-      'images/4.png',
-      'images/5.png',
-      'images/6.png',
-      'images/7.png',
-      'images/8.png'
-    ];
+ 
+<script>
+  const images = [
+    'images/cat.png',
+    'images/dog.png',
+    'images/fox.png',
+    'images/bear.png',
+    'images/koala.png',
+    'images/lion.png',
+    'images/tiger.png',
+    'images/cow.png',
+    'images/pig.png',
+    'images/rabbit.png'
+  ];
 
-    const card = document.getElementById('card');
-    const cardImage = document.getElementById('cardImage');
+  const card = document.getElementById('card');
+  const cardImage = document.getElementById('cardImage');
 
-    function toggleCard() {
-      card.classList.toggle('flipped');
-    }
-
-    function newCard() {
+  card.onclick = () => {
+    if (card.classList.contains('flipped')) {
+      // Karte ist aufgedeckt → zudecken
+      card.classList.remove('flipped');
+    } else {
+      // Karte ist verdeckt → neues Bild wählen und aufdecken
       const randomImage = images[Math.floor(Math.random() * images.length)];
       cardImage.src = randomImage;
-      card.classList.remove('flipped');
+      card.classList.add('flipped');
     }
-  </script>
+  };
+</script>
+
 </body>
 </html>
