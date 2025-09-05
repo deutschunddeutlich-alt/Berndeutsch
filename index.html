@@ -69,6 +69,7 @@
       <div class="card-back">
         <img id="cardImage" src="images/1.png" alt="Vorderseite">
       </div>
+      <div id="sentence"></div>
     </div>
   </div>
 
@@ -84,6 +85,24 @@
     'images/7.png',
     'images/8.png'
   ];
+
+const sentences = [
+  'Heute ist ein guter Tag für neue Abenteuer.',
+  'Manchmal ist eine Pause genau das Richtige.',
+  'Ein Lächeln verändert alles.',
+  'Geduld ist der Schlüssel zum Erfolg.',
+  'Freundlichkeit kostet nichts und bewirkt viel.',
+  'Jeder Tag ist eine neue Chance.',
+  'Träume groß, beginne klein.',
+  'Mut beginnt mit einem Schritt.',
+  'Das Leben ist voller Überraschungen.',
+  'Du bist stärker als du denkst.'
+];
+  
+const randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
+sentenceDiv.textContent = randomSentence;
+
+  sentenceDiv.textContent = '';
 
   const card = document.getElementById('card');
   const cardImage = document.getElementById('cardImage');
