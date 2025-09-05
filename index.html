@@ -99,22 +99,21 @@ const sentences = [
   'Du bist stärker als du denkst.'
 ];
   
-const randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
-sentenceDiv.textContent = randomSentence;
-
-  sentenceDiv.textContent = '';
 
   const card = document.getElementById('card');
   const cardImage = document.getElementById('cardImage');
+  const sentenceDiv = document.getElementById('sentence');
 
   card.onclick = () => {
     if (card.classList.contains('flipped')) {
       // Karte ist aufgedeckt → zudecken
       card.classList.remove('flipped');
+      sentenceDiv.textContent = '';
     } else {
       // Karte ist verdeckt → neues Bild wählen und aufdecken
       const randomImage = images[Math.floor(Math.random() * images.length)];
       cardImage.src = randomImage;
+      sentenceDiv.textContent = randomSentence;
       card.classList.add('flipped');
     }
   };
