@@ -57,6 +57,21 @@
       padding: 10px 20px;
       font-size: 1rem;
     }
+    
+.checkboxes {
+  margin-bottom: 20px;
+}
+.checkboxes label {
+  margin-right: 15px;
+  font-size: 1rem;
+}
+#sentence {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  text-align: center;
+  max-width: 300px;
+}
+
   </style>
 </head>
 <body>
@@ -113,6 +128,48 @@ const card = document.getElementById('card');
       sentenceDiv.textContent = randomSentence;
       card.classList.add('flipped');
     }
+
+    const sentencesA = [
+  'A1: Heute ist ein guter Tag.',
+  'A2: Du bist stark.',
+  'A3: Alles wird gut.',
+  'A4: Bleib positiv.',
+  'A5: Du schaffst das.'
+];
+
+const sentencesB = [
+  'B1: Lernen macht Spaß.',
+  'B2: Übung macht den Meister.',
+  'B3: Wissen ist Macht.',
+  'B4: Lesen erweitert den Horizont.',
+  'B5: Bildung ist der Schlüssel.'
+];
+
+const sentencesC = [
+  'C1: Natur ist heilsam.',
+  'C2: Tiere sind Freunde.',
+  'C3: Der Wald lebt.',
+  'C4: Frische Luft tut gut.',
+  'C5: Die Erde ist kostbar.'
+];
+
+
+
+function getRandomSentence() {
+  let activeSentences = [];
+
+  if (document.getElementById('catA').checked) activeSentences = activeSentences.concat(sentencesA);
+  if (document.getElementById('catB').checked) activeSentences = activeSentences.concat(sentencesB);
+  if (document.getElementById('catC').checked) activeSentences = activeSentences.concat(sentencesC);
+
+  if (activeSentences.length > 0) {
+    const randomSentence = activeSentences[Math.floor(Math.random() * activeSentences.length)];
+    sentenceDiv.textContent = randomSentence;
+  } else {
+    sentenceDiv.textContent = 'Bitte mindestens eine Kategorie auswählen.';
+  }
+}
+
   };
 
 </script>
