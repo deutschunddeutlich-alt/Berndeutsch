@@ -143,25 +143,28 @@
   const cardImage = document.getElementById('cardImage');
   const sentenceDiv = document.getElementById('sentence');
 
-  function getRandomSentence() {
-    let activeSentences = [];
 
-    if (document.getElementById(' activeSentences = activeSentences.concat(sentencesA);
-    }
-    if (document.getElementById('catB').checked) {
-      activeSentences = activeSentences.concat(sentencesB);
-    }
-    if (document.getElementById('catC').checked) {
-      activeSentences = activeSentences.concat(sentencesC);
-    }
+function getRandomSentence() {
+  let activeSentences = [];
 
-    if (activeSentences.length > 0) {
-      const randomSentence = activeSentences[Math.floor(Math.random() * activeSentences.length)];
-      sentenceDiv.textContent = randomSentence;
-    } else {
-      sentenceDiv.textContent = 'Bitte mindestens eine Kategorie auswählen.';
-    }
+  if (document.getElementById('catA').checked) {
+    activeSentences = activeSentences.concat(sentencesA);
   }
+  if (document.getElementById('catB').checked) {
+    activeSentences = activeSentences.concat(sentencesB);
+  }
+  if (document.getElementById('catC').checked) {
+    activeSentences = activeSentences.concat(sentencesC);
+  }
+
+  if (activeSentences.length > 0) {
+    const randomSentence = activeSentences[Math.floor(Math.random() * activeSentences.length)];
+    sentenceDiv.textContent = randomSentence;
+  } else {
+    sentenceDiv.textContent = 'Bitte mindestens eine Kategorie auswählen.';
+  }
+}
+
 
   card.onclick = () => {
     if (card.classList.contains('flipped')) {
