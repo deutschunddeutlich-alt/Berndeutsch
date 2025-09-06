@@ -115,32 +115,53 @@
     'images/7.png',
     'images/8.png'
   ];
-      const sentencesA = [
-  'Wär wohnt hie?',
-  'Wär heisst Gärber?',
-  'Wär redt Französisch?',
-  'Wär isch vo Bärn?',
-  'Wär het Hunger?',
-  'Wär chunnt vo Züri?',
-  'Wär cha mitcho?',
-  'Wär schaffet z Bärn?',
-  'Wär stellt sich vor?'
-];
 
-const sentencesB = [
-  'Wär grüessich?',
-  'Wär bsuechsch?',
-  'Wär geshsch?',
-];
+  const sentencesA = [
+    'Wär wohnt hie?',
+    'Wär heisst Gärber?',
+    'Wär redt Französisch?',
+    'Wär isch vo Bärn?',
+    'Wär het Hunger?',
+    'Wär chunnt vo Züri?',
+    'Wär cha mitcho?',
+    'Wär schaffet z Bärn?',
+    'Wär stellt sich vor?'
+  ];
 
-const sentencesC = [
-  'Mit wäm geisch i d Stadt?',
-  'Bi wäm issisch z Mittag'
-];
+  const sentencesB = [
+    'Wär grüessich?',
+    'Wär bsuechsch?',
+    'Wär geshsch?'
+  ];
 
-const card = document.getElementById('card');
+  const sentencesC = [
+    'Mit wäm geisch i d Stadt?',
+    'Bi wäm issisch z Mittag'
+  ];
+
+  const card = document.getElementById('card');
   const cardImage = document.getElementById('cardImage');
   const sentenceDiv = document.getElementById('sentence');
+
+  function getRandomSentence() {
+    let activeSentences = [];
+
+    if (document.getElementById(' activeSentences = activeSentences.concat(sentencesA);
+    }
+    if (document.getElementById('catB').checked) {
+      activeSentences = activeSentences.concat(sentencesB);
+    }
+    if (document.getElementById('catC').checked) {
+      activeSentences = activeSentences.concat(sentencesC);
+    }
+
+    if (activeSentences.length > 0) {
+      const randomSentence = activeSentences[Math.floor(Math.random() * activeSentences.length)];
+      sentenceDiv.textContent = randomSentence;
+    } else {
+      sentenceDiv.textContent = 'Bitte mindestens eine Kategorie auswählen.';
+    }
+  }
 
   card.onclick = () => {
     if (card.classList.contains('flipped')) {
@@ -148,31 +169,11 @@ const card = document.getElementById('card');
       sentenceDiv.textContent = '';
     } else {
       const randomImage = images[Math.floor(Math.random() * images.length)];
-      const randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
       cardImage.src = randomImage;
-      sentenceDiv.textContent = randomSentence;
+      getRandomSentence();
       card.classList.add('flipped');
     }
-
-
-
-function getRandomSentence() {
-  let activeSentences = [];
-
-  if (document.getElementById('catA').checked) activeSentences = activeSentences.concat(sentencesA);
-  if (document.getElementById('catB').checked) activeSentences = activeSentences.concat(sentencesB);
-  if (document.getElementById('catC').checked) activeSentences = activeSentences.concat(sentencesC);
-
-  if (activeSentences.length > 0) {
-    const randomSentence = activeSentences[Math.floor(Math.random() * activeSentences.length)];
-    sentenceDiv.textContent = randomSentence;
-  } else {
-    sentenceDiv.textContent = 'Bitte mindestens eine Kategorie auswählen.';
-  }
-}
-
   };
-
 </script>
 
 </body>
