@@ -75,7 +75,14 @@
   </style>
 </head>
 <body>
-  <h2>Gib die richtigi Antwort</h2>
+ <div class="layout">
+   <h2>Gib die richtigi Antwort</h2>
+    <div class="checkboxes">
+    <h3>Fälle</h3>
+    <label><input type="checkbox" id="catA" checked> Nominativ</label><br>
+    <label><input type="checkbox" id="catB" checked> Akkusativ</label><br>
+    <label><input type="checkbox" id="catC" checked> Dativ</label>
+  </div>
   <div class="card" id="card">
     <div class="card-inner">
       <div class="card-front">
@@ -87,21 +94,6 @@
     </div>
   </div>
 <div id="sentence"></div>
-  
-<div class="checkboxes">
-  <label>
-    <input type="checkbox" id="catA" checked>
-    Nominativ
-  </label>
-  <label>
-    <input type="checkbox" id="catB" checked>
-    Akkussativ
-  </label>
-  <label>
-    <input type="checkbox" id="catC" checked>
-   Dativ
-  </label>
-</div>
 
  
 <script>
