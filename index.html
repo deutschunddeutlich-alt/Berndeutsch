@@ -12,13 +12,13 @@
       align-items: center;
       padding: 40px;
     }
-    .card {
-      width: 320px;
-      height: 470px;
-      perspective: 1000px;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
+  .card {
+  width: 320px;
+  height: 470px;
+  perspective: 1000px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
     .card-inner {
       position: relative;
       width: 100%;
@@ -71,48 +71,58 @@
 }
     
 #sentence {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
-  max-width: 400px;
-  text-align: left;
+  text-align: center;
+  min-height: 2.5em; /* Fixiert die Höhe, verhindert Springen */
+  line-height: 1.2;
+  margin-top: 10px;
 }
     
 .layout {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  gap: 40px;
+  gap: 60px;
   flex-wrap: wrap;
 }
 
+
+.card-and-sentence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+}
+
+    
   </style>
 </head>
 <body>
- <div class="layout">
-   
-   <h2>Gib die richtigi Antwort</h2>
-    
-   <div class="checkboxes">
+
+<div class="layout">
+  <div class="checkboxes">
     <h3>Fälle</h3>
     <label><input type="checkbox" id="catA" checked> Nominativ</label><br>
     <label><input type="checkbox" id="catB" checked> Akkusativ</label><br>
     <label><input type="checkbox" id="catC" checked> Dativ</label>
   </div>
-   
-  <div class="card" id="card">
-    
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="images/back.png" alt="Rückseite">
-      </div>
-      <div class="card-back">
-        <img id="cardImage" src="images/1.png" alt="Vorderseite">
+
+  <div class="card-and-sentence">
+    <h2>Gib die richtigi Antwort</h2>
+    <div class="card" id="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="images/back.png" alt="Rückseite">
+        </div>
+        <div class="card-back">
+          <img id="cardImage" src="images/1.png" alt="Vorderseite">
+        </div>
       </div>
     </div>
+    <div id="sentence"> </div> <!-- Leerzeichen hält Höhe stabil -->
   </div>
-    <div id="sentence"></div>
-  </div>
-
+</div>
 
  
 <script>
