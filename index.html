@@ -111,10 +111,11 @@ h2 {
 <body>
 
 
-<h2>Personalpronome: Gib die richtigi Antwort</h2>
+<h2>Personalpronome - Gib die richtigi Antwort</h2>
 
 <div class="layout">
-  <div class="column checkboxes">
+  <!-- Linke Spalte: Checkboxes -->
+  <div class="column">
     <div class="align-bottom">
       <h3>Fälle</h3>
       <label><input type="checkbox" id="catA" checked> Nominativ</label><br>
@@ -123,6 +124,7 @@ h2 {
     </div>
   </div>
 
+  <!-- Mitte: Karte -->
   <div class="column">
     <div class="card" id="card">
       <div class="card-inner">
@@ -136,12 +138,15 @@ h2 {
     </div>
   </div>
 
+  <!-- Rechte Spalte: Satz oder Hinweis -->
   <div class="column">
     <div class="align-bottom">
-      <div id="sentence"> </div> <!-- Leerzeichen für stabile Höhe -->
+      <div id="sentence">Klick auf die Karte!</div>
     </div>
   </div>
 </div>
+
+  
 
 <script>
   const images = [
