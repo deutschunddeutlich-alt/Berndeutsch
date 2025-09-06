@@ -190,6 +190,8 @@ h2 {
   const sentenceDiv = document.getElementById('sentence');
 
 
+
+  
 function getRandomSentence() {
   let activeSentences = [];
 
@@ -211,18 +213,18 @@ function getRandomSentence() {
   }
 }
 
+card.onclick = () => {
+  if (card.classList.contains('flipped')) {
+    card.classList.remove('flipped');
+    sentenceDiv.textContent = 'Klick auf die Karte!';
+  } else {
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    cardImage.src = randomImage;
+    getRandomSentence();
+    card.classList.add('flipped');
+  }
+};
 
-  card.onclick = () => {
-    if (card.classList.contains('flipped')) {
-      card.classList.remove('flipped');
-      sentenceDiv.textContent = '';
-    } else {
-      const randomImage = images[Math.floor(Math.random() * images.length)];
-      cardImage.src = randomImage;
-      getRandomSentence();
-      card.classList.add('flipped');
-    }
-  };
 </script>
 
 </body>
