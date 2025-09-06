@@ -115,25 +115,7 @@
     'images/7.png',
     'images/8.png'
   ];
-  
-
-const card = document.getElementById('card');
-  const cardImage = document.getElementById('cardImage');
-  const sentenceDiv = document.getElementById('sentence');
-
-  card.onclick = () => {
-    if (card.classList.contains('flipped')) {
-      card.classList.remove('flipped');
-      sentenceDiv.textContent = '';
-    } else {
-      const randomImage = images[Math.floor(Math.random() * images.length)];
-      const randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
-      cardImage.src = randomImage;
-      sentenceDiv.textContent = randomSentence;
-      card.classList.add('flipped');
-    }
-
-    const sentencesA = [
+      const sentencesA = [
   'Wär wohnt hie?',
   'Wär heisst Gärber?',
   'Wär redt Französisch?',
@@ -152,9 +134,25 @@ const sentencesB = [
 ];
 
 const sentencesC = [
-  'Mit wäm geisch i d Stadt?'
+  'Mit wäm geisch i d Stadt?',
   'Bi wäm issisch z Mittag'
 ];
+
+const card = document.getElementById('card');
+  const cardImage = document.getElementById('cardImage');
+  const sentenceDiv = document.getElementById('sentence');
+
+  card.onclick = () => {
+    if (card.classList.contains('flipped')) {
+      card.classList.remove('flipped');
+      sentenceDiv.textContent = '';
+    } else {
+      const randomImage = images[Math.floor(Math.random() * images.length)];
+      const randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
+      cardImage.src = randomImage;
+      sentenceDiv.textContent = randomSentence;
+      card.classList.add('flipped');
+    }
 
 
 
