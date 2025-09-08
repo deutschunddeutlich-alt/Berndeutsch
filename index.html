@@ -3,13 +3,19 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Personalpronomen</title>
+  <title>Schweizerdeutsch</title>
   <style>
     
 body {
   font-family: sans-serif;
   padding: 40px;
   margin: 0;
+}
+
+h1 {
+  font-size: 2.1rem;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 h2 {
@@ -114,128 +120,13 @@ h2 {
 <body>
 
 
-<h2>Personalpronome - Gib die richtigi Antwort</h2>
-
-<div class="layout">
-  <!-- Linke Spalte: Checkboxes -->
-  <div class="column">
-    <div class="align-bottom">
-      <h3>Fälle</h3>
-      <label><input type="checkbox" id="catA" checked> Nominativ</label><br>
-      <label><input type="checkbox" id="catB" checked> Akkusativ</label><br>
-      <label><input type="checkbox" id="catC" checked> Dativ</label>
-    </div>
-  </div>
-
-  <!-- Mitte: Karte -->
-  <div class="column">
-    <div class="card" id="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="images/back.png" alt="Rückseite">
-        </div>
-        <div class="card-back">
-          <img id="cardImage" src="images/1.png" alt="Vorderseite">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Rechte Spalte: Satz oder Hinweis -->
-  <div class="column">
-    <div class="align-bottom">
-      <div id="sentence">Klick auf die Karte!</div>
-    </div>
-  </div>
-</div>
-
+  <h1>Willkommen</h1>
+  <ul>
+    <li><a href="personalpronomen/index.html">Personalpronomen</a></li>
+    <!-- Weitere Seiten folgen -->
+  </ul>
   
 
-<script>
-  const images = [
-    'images/1.png',
-    'images/2.png',
-    'images/3.png',
-    'images/4.png',
-    'images/5.png',
-    'images/6.png',
-    'images/7.png',
-    'images/8.png'
-  ];
-
-  const sentencesA = [
-    'Wär wohnt hie?',
-    'Wär heisst Gärber?',
-    'Wär redt Französisch?',
-    'Wär isch vo Bärn?',
-    'Wär het Hunger?',
-    'Wär chunnt vo Züri?',
-    'Wär cha mitcho?',
-    'Wär schaffet z Bärn?',
-    'Wär stellt sich vor?'
-  ];
-
-  const sentencesB = [
-    'Wär grüessich?',
-    'Wär bsueche si?',
-    'Wär gsehsch?',
-    'Wär cha-n-i vorstelle?',
-    'Gäge wär spile mer?',
-    'Wär beschrybt er?',
-    'Wär fragt er?'
-    
-  ];
-
-  const sentencesC = [
-    'Mit wäm geisch i d Stadt?',
-    'Bi wäm issisch z Mittag',
-    'Mit wäm wohnt er?',
-    'Mit wäm spilt d Schwoscht?',
-    'Wäm schrybe mer?',
-    'Zu wäm göht dihr?'
-  ];
-
-  const card = document.getElementById('card');
-  const cardImage = document.getElementById('cardImage');
-  const sentenceDiv = document.getElementById('sentence');
-
-
-
-  
-function getRandomSentence() {
-  let activeSentences = [];
-
-  if (document.getElementById('catA').checked) {
-    activeSentences = activeSentences.concat(sentencesA);
-  }
-  if (document.getElementById('catB').checked) {
-    activeSentences = activeSentences.concat(sentencesB);
-  }
-  if (document.getElementById('catC').checked) {
-    activeSentences = activeSentences.concat(sentencesC);
-  }
-
-  if (activeSentences.length > 0) {
-    const randomSentence = activeSentences[Math.floor(Math.random() * activeSentences.length)];
-    sentenceDiv.textContent = randomSentence;
-  } else {
-    sentenceDiv.textContent = 'Bitte mindestens eine Kategorie auswählen.';
-  }
-}
-
-card.onclick = () => {
-  if (card.classList.contains('flipped')) {
-    card.classList.remove('flipped');
-    sentenceDiv.textContent = 'Klick uf d Charte!';
-  } else {
-    const randomImage = images[Math.floor(Math.random() * images.length)];
-    cardImage.src = randomImage;
-    getRandomSentence();
-    card.classList.add('flipped');
-  }
-};
-
-</script>
 
 </body>
 </html>
